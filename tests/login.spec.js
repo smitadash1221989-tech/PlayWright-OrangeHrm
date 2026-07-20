@@ -1,24 +1,20 @@
-import{test,expect}from '@playwright/test';
+import{test,expect} from '../fixtures/base.fixture';
 import { LoginPage } from '../pages/LoginPage';
 import { Dashboard } from '../pages/Dashboard';
 import { basePage } from '../core/basepage';
 test.describe("Login Module",()=>{
-    test("verify Valid Login", async({page})=>{
-        const loginPg = new LoginPage(page);
-        const dashboardPg = new Dashboard(page);
-        await loginPg.openPage();
-        await loginPg.userLogin("Admin","admin123");
-        const dbTitle = await dashboardPg.getDashboardTitle();
-        await loginPg.takeScreenshot("dashboardtext");
+    test("verify Valid Login", async({loginPagepg,dashboardPagepg})=>{
+        await loginPagepg.openPage();
+        await loginPagepg.userLogin("Admin","admin123");
+        const dbTitle = await dashboardPagepg.getDashboardTitle();
+        await loginPagepg.takeScreenshot("dashboardtext");
         await expect(dbTitle).toContain('Dashboard');
     });
-    test("verify Invalid Login", async({page})=>{
-        const loginPg = new LoginPage(page);
-        const dashboardPg = new Dashboard(page);
-        await loginPg.openPage();
-        await loginPg.userLogin("Admin","wrongpassword");
-        const error = await loginPg.getErrorMessage();
-        await loginPg.takeScreenshot("error1");
+    test("verify Invalid Login", async({loginPagepg,dashboardPagepg})=>{
+         await loginPagepg.openPage();
+         await loginPagepg.userLogin("Admin","wrongpassword");
+        const error = await loginPagepg.getErrorMessage();
+        await loginPagepg.takeScreenshot("error1");
         await expect(error).toContain("Invalid credentials");
     });
 });

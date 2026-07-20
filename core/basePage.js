@@ -36,4 +36,12 @@ export class basePage{
     {
         return await this.page.getTitle();
     }
+    async isVisible(locator)
+    {
+        return await locator.isVisible();
+    }
+    async waitforPageLoad()
+    {
+        await this.page.waitforPageLoad("networkidle");
+    }
 }
