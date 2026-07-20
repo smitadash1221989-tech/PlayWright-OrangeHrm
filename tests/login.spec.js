@@ -13,7 +13,7 @@ test.describe("Login Module",()=>{
     });
     test("verify Invalid Login", async({loginPagepg,dashboardPagepg})=>{
          await loginPagepg.openPage();
-         await loginPagepg.userLogin("Admin","wrongpassword");
+         await loginPagepg.userLogin("users.incorrect.username","users.incorrect.password");
         const error = await loginPagepg.getErrorMessage();
         await loginPagepg.takeScreenshot("error1");
         await expect(error).toContain("Invalid credentials");

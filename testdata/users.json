@@ -2,5 +2,9 @@
     "admin":{
         "username":"Admin",
         "password":"admin123"
+    },
+    "incorrect" :{
+        "username":"Admin",
+        "password":"wrongpassword"
     }
 }
