@@ -20,4 +20,6 @@ test("verify Time At Work",async({dashboardPagepg})=>{
 test("verify Quick Launch",async({dashboardPagepg})=>{
     await dashboardPagepg.verifyQuickLaunch();
 });
-
+test("verify employee distribution",async({dashboardPagepg})=>{
+    
+})
