@@ -4,6 +4,7 @@ import { LoginPage } from "../pages/LoginPage";
 import { Dashboard } from "../pages/Dashboard";
 import { SideMenu } from "../components/SideMenu";
 import users from '../testdata/users.json' with {type:'json'};
+test.describe("Dashboard Function Page",{tag:"@smoke"},()=>{
 test.beforeEach("login",async({loginPagepg})=>{
      await loginPagepg.openPage();
      await loginPagepg.userLogin(users.admin.username,users.admin.password);
@@ -21,5 +22,7 @@ test("verify Quick Launch",async({dashboardPagepg})=>{
     await dashboardPagepg.verifyQuickLaunch();
 });
 test("verify employee distribution",async({dashboardPagepg})=>{
-    
+
+})
+
 })
