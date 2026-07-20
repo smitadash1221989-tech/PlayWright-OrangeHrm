@@ -6,10 +6,15 @@ export class Dashboard extends basePage{
     {
         super(page);
         this.dashboardtitle = page.getByRole("heading",{name:"Dashboard"});
+        this.dashboardheader=page.locator(".oxd-text--h6");
         this.sidemenu = new SideMenu(page);
         this.timeatwork=page.locator("div.orangehrm-dashboard-widget-name");
         this.quicklaunch = page.getByText("Quick Launch");
         this.employeedistribution=page.getByText("Employee Distribution by Sub Unit");
+    }
+    async VerifyDashboard()
+    {
+        await this.isVisible(this.dashboardheader);
     }
     async getDashboardTitle()
     {
@@ -21,14 +26,17 @@ export class Dashboard extends basePage{
     }
     async verifyEmployeeDistributionvisible()
     {
-        return await this.employeedistribution.isVisible();
+        return await this.isVisible(this.employeedistribution);
     }
     async verifyTimeatWork()
     {
-        return await this.timeatwork.isVisible();
+        await this.isVisible(this.timeatwork);
+        console.log("user is on the time at work");
+
     }
     async verifyQuickLaunch()
     {
-        return await this.verifyQuickLaunch.isVisible();
+        await this.isVisible(this.quicklaunch);
+        console.log("user is on the quick launch");
     }
 }

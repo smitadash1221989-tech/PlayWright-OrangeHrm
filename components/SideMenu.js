@@ -4,8 +4,12 @@ export class SideMenu{
         this.page=page;
         this.sidemenu= page.locator("button.oxd-main-menu-button");
     }
-    async navigateSidemenu(sidemenu)
+    async navigateSidemenu()
     {
-        await this.sidemenu.click();
+        await this.click(this.sidemenu);
+    }
+    async menusearch()
+    {   
+
     }
 }
