@@ -1,23 +1,24 @@
-import { basePage } from "../core/basepage";
-export class Admin extends basePage{
+import { basePage } from "../core/basePage";
+import { expect } from "@playwright/test";
+import { SideMenu } from "../components/SideMenu";
+import { WebTable } from "../components/WebTable";
+export class Admin extends basePage
+{
     constructor(page)
     {
         super(page);
-        this.adminHeader = page.locator("h6.oxd-text--h6",{hasText:"Admin"});
-        this.userName=page.locator("input.oxd-input--active");
-        this.searchBtn=page.getByRole("button",{name:' Search '});
-
-        
+        this.sidemenu = new SideMenu(page);
+        this.Webtable = new WebTable(page);
+        this.searchBtn = page.locator(".oxd-button[type='submit']");
+        this.resetBtn=page.locator(".oxd-button[type='button']").nth(0);
+        this.addBtn=page.locator(".oxd-button[type='button']").nth(1);
 
     }
-    async getHeader()
+    async openAdminPage()
     {
-        return await this.getText(this.adminHeader);
-    }
-    async searchUser(username)
-    {
-        await this.fill(this.userName,username);
-        await this.click(this.searchBtn);
+        await this.sidemenu.navigateSidemenu();
+        await this.sidemenu.menuSearch("Admin");
+        await this.sidemenu.openAdmin();
     }
    
 }

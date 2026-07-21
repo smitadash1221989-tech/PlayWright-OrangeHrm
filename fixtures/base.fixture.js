@@ -1,6 +1,7 @@
 import {test as base, expect} from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { Dashboard } from '../pages/Dashboard';
+import { Admin } from '../pages/Admin';
 
 console.log('BASE FIXTURE LOADED');
 console.log('typeof base =', typeof base);

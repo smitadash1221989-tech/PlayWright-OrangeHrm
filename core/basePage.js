@@ -16,6 +16,7 @@ export class basePage{
 
     async fill(locator,text)
     {
+        await locator.waitFor({ state: "visible" });
         await locator.fill(text);
     }
     async getText(locator)
