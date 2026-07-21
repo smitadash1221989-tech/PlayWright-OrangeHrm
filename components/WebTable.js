@@ -1,6 +1,6 @@
-import{basepage} from '../core/basePage';
+import { basePage } from "../core/basePage";
 
-export class WebTable extends basepage
+export class WebTable extends basePage
 {
     constructor(page)
     {
@@ -22,7 +22,7 @@ export class WebTable extends basepage
         const count = await this.header.count();
         for(let i=0;i<count;i++)
         {
-            const header = await this.header.nth(i).textContent().trim();
+            const header = await (this.header.nth(i).textContent()).trim();
             if(header===/columnname/);
             {
                 return i;
@@ -54,3 +54,5 @@ export class WebTable extends basepage
         return null;
     }
 }
+
+    

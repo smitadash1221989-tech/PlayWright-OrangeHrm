@@ -1,4 +1,4 @@
-import { basePage } from "../core/basepage";
+import { basePage } from "../core/basePage";
 export class SideMenu extends basePage{
     constructor(page)
     {

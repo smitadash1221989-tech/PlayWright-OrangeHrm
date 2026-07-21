@@ -16,7 +16,7 @@ export class Admin extends basePage
     }
     async openAdminPage()
     {
-        await this.sidemenu.navigateSidemenu();
+        //await this.sidemenu.navigateSidemenu();
         await this.sidemenu.menuSearch("Admin");
         await this.sidemenu.openAdmin();
     }
