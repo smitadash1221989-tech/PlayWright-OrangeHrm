@@ -13,4 +13,17 @@ test.describe("Admin Module",{tag:'@smoke'},()=>{
         
         await adminPagepg.openAdminPage();
     });
+    test("add New User", async({adminPagepg,loginPagepg})=>{
+        await loginPagepg.openPage();
+        await loginPagepg.userLogin(users.admin.username,users.admin.password);
+         await adminPagepg.openAdminPage();  
+        await adminPagepg.addUser();
+        await adminPagepg.addNewUser(users.newUser1.role,
+    users.newUser1.employeeName,
+    users.newUser1.status,
+    users.newUser1.username,
+    users.newUser1.password,
+    users.newUser1.confirmpassword);
+
+    })
 });

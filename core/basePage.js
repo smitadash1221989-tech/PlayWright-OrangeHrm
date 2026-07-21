@@ -43,6 +43,6 @@ export class basePage{
     }
     async waitforPageLoad()
     {
-        await this.page.waitforPageLoad("networkidle");
+        await this.page.waitForLoadState("networkidle");
     }
 }

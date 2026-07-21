@@ -1,0 +1,19 @@
+{
+  "searchByUsername": {
+    "username": "Admin"
+  },
+  "searchByRole": {
+    "role": "Admin"
+  },
+  "searchByStatus": {
+    "status": "Enabled"
+  },
+  "searchByEmployee": {
+    "employeeName": "Paul Collings"
+  },
+  "searchByMultiple": {
+    "username": "Admin",
+    "role": "Admin",
+    "status": "Enabled"
+  }
+}

@@ -1,7 +1,6 @@
-import { basePage } from "../core/basePage";
+import {basePage} from "../core/basePage";
 
-export class WebTable extends basePage
-{
+export class WebTable extends basePage{
     constructor(page)
     {
         super(page);
@@ -22,8 +21,8 @@ export class WebTable extends basePage
         const count = await this.header.count();
         for(let i=0;i<count;i++)
         {
-            const header = await (this.header.nth(i).textContent()).trim();
-            if(header===/columnname/);
+            const header = (await this.header.nth(i).textContent()).trim();
+            if(header===columnname);
             {
                 return i;
             }
