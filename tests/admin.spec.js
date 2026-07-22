@@ -71,11 +71,7 @@ test.describe("Admin Module",{tag:'@smoke'},()=>{
         );
 
     });
-test.only("Print table headers", async ({ adminPagepg }) => {
 
-     await adminPagepg.webTable.getColumnIndex("Username");
-
-});
 
 
 });

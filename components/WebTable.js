@@ -5,7 +5,7 @@ export class WebTable extends basePage{
     {
         super(page);
         this.header = page.locator("div.oxd-table-th[role='columnheader']");
-        this.row = page.locator(".oxd-table-row[role='row']");
+        this.row = page.locator(".oxd-table-body .oxd-table-row");
 
     }
     async headerdetail()
@@ -27,13 +27,13 @@ export class WebTable extends basePage{
         {
             const header = await this.header.nth(i).textContent();
             console.log(header);
-           // if(header.startsWith(columnname))
-           // {
-           //     return i;
-            //}
+            if(header.startsWith(columnname))
+            {
+                return i;
+            }
             
         }
-        //throw new Error(`${columnname} not found`);
+        throw new Error(`${columnname} not found`);
         
     }
     async readEveryCell()
@@ -52,8 +52,8 @@ export class WebTable extends basePage{
         const rowcount = await this.row.count();
         for(let i=0;i<rowcount;i++)
         {
-            const cell = await this.row.nth(i).locator("[role='cell']").nth(columnIndex);
-            if(await cell.textContent.trim()===value)
+            const cell = (await this.row.nth(i).locator("[role='cell']").nth(columnIndex).textContent()).trim();
+            if(cell===value)
              return this.row.nth(i);
         }
         return null;
