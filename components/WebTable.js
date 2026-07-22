@@ -4,30 +4,36 @@ export class WebTable extends basePage{
     constructor(page)
     {
         super(page);
-        this.header = page.locator("[role='columnheader']");
+        this.header = page.locator("div.oxd-table-th[role='columnheader']");
         this.row = page.locator(".oxd-table-row[role='row']");
 
     }
     async headerdetail()
     {
+        await this.page.waitForSelector("[role='columnheader']");
         const count = await this.header.count();
-        for(let i=0;i<count;i++)
+        for(let i=1;i<count;i++)
             {
                 console.log(await this.header.nth(i).textContent());//header name printed
             } 
     }
     async getColumnIndex(columnname)
     {
+        await this.page.waitForSelector("[role='columnheader']");
         const count = await this.header.count();
-        for(let i=0;i<count;i++)
+            console.log("===== TABLE HEADERS =====");
+
+        for(let i=1;i<count;i++)
         {
-            const header = (await this.header.nth(i).textContent()).trim();
-            if(header===columnname);
-            {
-                return i;
-            }
+            const header = await this.header.nth(i).textContent();
+            console.log(header);
+           // if(header.startsWith(columnname))
+           // {
+           //     return i;
+            //}
+            
         }
-        throw new Error(`${columnname} not found`);
+        //throw new Error(`${columnname} not found`);
         
     }
     async readEveryCell()

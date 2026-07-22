@@ -36,7 +36,9 @@ test.describe("Admin Module",{tag:'@smoke'},()=>{
     });
     test("Search User by username", async({loginPagepg,adminPagepg})=>{
         
-         await adminPagepg.searchUser(adminSearch.searchByUsername.username);
+         
+         await adminPagepg.searchUser(adminSearch.searchByUsername);
+        await adminPagepg.verifySearch("Username",adminSearch.searchByUsername.username);
     });
     test("Search User by User Role", async ({ adminPagepg }) => {
 
@@ -69,7 +71,11 @@ test.describe("Admin Module",{tag:'@smoke'},()=>{
         );
 
     });
+test.only("Print table headers", async ({ adminPagepg }) => {
 
+     await adminPagepg.webTable.getColumnIndex("Username");
+
+});
 
 
 });
