@@ -6,7 +6,7 @@ export class SideMenu extends basePage{
         this.sidemenu= page.locator("button.oxd-main-menu-button");
         this.search =page.locator("input[placeholder='Search']");
         this.admin=page.locator('span.oxd-main-menu-item--name:has-text("Admin")');
-        
+        this.pim = page.getByRole('link', { name: 'PIM' });
     }
     async navigateSidemenu()
     {
@@ -25,5 +25,8 @@ export class SideMenu extends basePage{
     {
         await this.click(this.admin);
     }
-    
+    async openPIM()
+    {
+        await this.click(this.pim);
+    }
 }

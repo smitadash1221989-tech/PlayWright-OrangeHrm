@@ -2,6 +2,7 @@ import {test as base, expect} from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { Dashboard } from '../pages/Dashboard';
 import { Admin } from '../pages/Admin';
+import { PIM } from '../pages/PIM';
 
 console.log('BASE FIXTURE LOADED');
 console.log('typeof base =', typeof base);
@@ -18,6 +19,10 @@ export const test = base.extend({
     adminPagepg: async({page},use)=>{
         const adminPagepg = new Admin(page);
         await use(adminPagepg);
+    },
+    pimPagepg: async({page},use)=>{
+        const pimPagepg = new PIM(page);
+        await use(pimPagepg);
     }
 
 });

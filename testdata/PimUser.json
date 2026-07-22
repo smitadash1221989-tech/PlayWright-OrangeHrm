@@ -1,0 +1,38 @@
+{
+  "employee1": {
+    "firstName": "Smita",
+    "middleName": "K",
+    "lastName": "Dash",
+    "employeeId": "EMP1001",
+    "photo": "testdata/dashboardtext.png"
+  },
+
+  "employee2": {
+    "firstName": "John",
+    "middleName": "A",
+    "lastName": "Smith",
+    "employeeId": "EMP1002",
+    "photo": "testdata/error1.png"
+  },
+
+  "employee3": {
+    "firstName": "Emma",
+    "middleName": "L",
+    "lastName": "Wilson",
+    "employeeId": "EMP1003",
+    "photo": "test-data/error1.png"
+  },
+  "employee Status":{
+    "status1":"Full-Time Contract",
+    "status2":"Freelance",
+    "status3":"Full-Time Permanent",
+    "status4":"Full-Time Probation",
+    "status5":"Part-Time Contract"
+  },
+  "include":{
+    "option1":"Current Employees Only",
+    "option2":"Current and Past Employees",
+    "option3":"Past Employees Only"
+  }
+
+}

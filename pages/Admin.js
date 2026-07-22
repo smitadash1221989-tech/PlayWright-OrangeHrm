@@ -37,10 +37,6 @@ export class Admin extends basePage {
         this.searchStatus = page.locator("div.oxd-select-text").last();
     }
 
-    //----------------------------
-    // Navigation
-    //----------------------------
-
     async openAdminPage() {
         await this.sidemenu.menuSearch("Admin");
         await this.sidemenu.openAdmin();
@@ -114,9 +110,7 @@ export class Admin extends basePage {
         await this.click(this.cancelAdd);
     }
 
-    //----------------------------
-    // Search User
-    //----------------------------
+    //search user
 
     async searchByUsername(username) {
         await this.fill(this.searchUsername, username);
