@@ -4,6 +4,8 @@ import { Admin } from '../pages/Admin';
 import { LoginPage } from '../pages/LoginPage';
 import users from '../testdata/users.json' with {type:'json'};
 import adminSearch from '../testdata/adminSearch.json' with {type:'json'};
+import { SideMenu } from '../components/SideMenu';
+import { WebTable } from '../components/WebTable';
 test.describe("Admin Module",{tag:'@smoke'},()=>{
      test.beforeEach(async ({ loginPagepg, adminPagepg }) => {
 
