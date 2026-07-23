@@ -28,14 +28,9 @@ export class Admin extends basePage {
         this.searchEmployeeName = page.locator("input[placeholder='Type for hints...']");
         this.searchStatus = page.locator("div.oxd-select-text").last();
     }
-<<<<<<< HEAD
 
-    async openAdminPage() {
-=======
-    //Navigation to admin page
     async openAdminPage() 
     {
->>>>>>> develop
         await this.sidemenu.menuSearch("Admin");
         await this.sidemenu.openAdmin();
     }
@@ -88,16 +83,10 @@ export class Admin extends basePage {
     {
         await this.click(this.cancelAdd);
     }
-<<<<<<< HEAD
-
-    //search user
-
-    async searchByUsername(username) {
-=======
     // Search User
     async searchByUsername(username)
     {
->>>>>>> develop
+
         await this.fill(this.searchUsername, username);
     }
     async searchByUserRole(userRole) 
