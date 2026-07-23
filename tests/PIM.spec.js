@@ -19,5 +19,5 @@ test.describe("Pim Module",{tag:'@smoke'},()=>{
     });
     test("Search User",async({pimPagepg})=>{
         await pimPagepg.getjobtitle();
-    })
+    });
 })
