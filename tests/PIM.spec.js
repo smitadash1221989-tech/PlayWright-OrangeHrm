@@ -6,6 +6,7 @@ import users from '../testdata/users.json' with {type:'json'};
 import PimUser from '../testdata/PimUser.json' with {type:'json'};
 import PimSearch from '../testdata/PimSearch.json' with {type:'json'};
 import { Dashboard } from '../pages/Dashboard';
+import { FakerUtil } from '../utils/FakerUtil';
 test.describe("Pim Module",{tag:'@smoke'},()=>{
     test.beforeEach("loginModule",async({loginPagepg,pimPagepg,dashboardPagepg})=>{
         await loginPagepg.openPage();
@@ -48,5 +49,12 @@ test.describe("Pim Module",{tag:'@smoke'},()=>{
    test("verify Delete",async({pimPagepg})=>{
     const searchData =  PimSearch.searchEmployee1.employeeName;
     await pimPagepg.verifyEmployeeDelete(searchData);
-   })
+   });
+   test("Add Employee Faker",async({pimPagepg})=>{
+    await pimPagepg.addBtn();
+    const employee1 = FakerUtil.employee();//stores the return value for the object returned
+    console.log(employee1);
+    await pimPagepg.addUserFaker(employee1);// passing the value returned as data.
+    
+   });
 })

@@ -258,4 +258,13 @@ export class PIM extends basePage
         await this.waitForsuccessToast(this.successtoast,"No Records Found");
         console.log("the employee is deleted correctly");
    }
+    async addUserFaker(employee){
+          await this.firstnameadd(employee.firstName);
+          await this.middlenameadd(employee.middleName);
+          await this.lastnameadd(employee.lastName);
+          await this.employeeID(employee.employeeId);
+          await this.click(this.saveNewUserBtn);
+          await this.page.waitForURL(/viewPersonalDetails/, {timeout: 15000});
+          await expect(this.page).toHaveURL(/viewPersonalDetails/);
+    }
 }
