@@ -1,26 +1,26 @@
 {
   "employee1": {
-    "firstName": "Smita",
-    "middleName": "K",
-    "lastName": "Dash",
-    "employeeId": "EMP1001",
+     "firstName": "Linda",
+    "middleName": "Marie",
+    "lastName": "Anderson",
+    "employeeId": "9008",
     "photo": "testdata/dashboardtext.png"
   },
 
   "employee2": {
     "firstName": "John",
-    "middleName": "A",
+    "middleName": "David",
     "lastName": "Smith",
-    "employeeId": "EMP1002",
-    "photo": "testdata/error1.png"
+    "employeeId": "9008",
+    "photo": "testdata/dashboardtext.png"
   },
 
   "employee3": {
-    "firstName": "Emma",
-    "middleName": "L",
-    "lastName": "Wilson",
-    "employeeId": "EMP1003",
-    "photo": "test-data/error1.png"
+    "firstName": "Smita",
+    "middleName": "K",
+    "lastName": "Dash",
+    "employeeId": "89909",
+    "photo": "C:/Users/Smita Dash/OneDrive/Pictures/Screenshots/image2.jpeg"
   },
   "employee Status":{
     "status1":"Full-Time Contract",
@@ -33,6 +33,29 @@
     "option1":"Current Employees Only",
     "option2":"Current and Past Employees",
     "option3":"Past Employees Only"
+  },
+  
+"jobTitles": {
+    "accountAssistant": "Account Assistant",
+    "accountant": "Accountant",
+    "chiefExecutiveOfficer": "Chief Executive Officer",
+    "chiefFinancialOfficer": "Chief Financial Officer",
+    "financeManager": "Finance Manager",
+    "hrExecutive": "HR Executive",
+    "hrManager": "HR Manager",
+    "itManager": "IT Manager",
+    "networkAdministrator": "Network Administrator",
+    "networkEngineer": "Network Engineer",
+    "payrollAdministrator": "Payroll Administrator",
+    "payrollManager": "Payroll Manager",
+    "qaEngineer": "QA Engineer",
+    "qaLead": "QA Lead",
+    "salesManager": "Sales Manager",
+    "salesRepresentative": "Sales Representative",
+    "softwareArchitect": "Software Architect",
+    "softwareEngineer": "Software Engineer",
+    "supportSpecialist": "Support Specialist",
+    "technicalSupportEngineer": "Technical Support Engineer"
   }
 
 }

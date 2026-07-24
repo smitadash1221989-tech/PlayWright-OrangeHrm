@@ -21,14 +21,16 @@ export class WebTable extends basePage{
     {
         await this.page.waitForSelector("[role='columnheader']");
         const count = await this.header.count();
-            console.log("===== TABLE HEADERS =====");
+            //console.log("===== TABLE HEADERS =====");
 
-        for(let i=1;i<count;i++)
+        for(let i=0;i<count;i++)
         {
-            const header = await this.header.nth(i).textContent();
+            const header = (await this.header.nth(i).textContent())?.trim();
+            console.log(`Header ${i}: '${header}'`);
             console.log(header);
             if(header.startsWith(columnname))
             {
+                console.log(`Matched at index ${i}`);
                 return i;
             }
             
@@ -48,13 +50,20 @@ export class WebTable extends basePage{
     }
     async getRowByColumnValue(columnname,value)
     {
+         console.log(`Searching Column: '${columnname}'`);
+        console.log(`Searching Value : '${value}'`);
         const columnIndex= await this.getColumnIndex(columnname);
+         console.log("Column Index:", columnIndex);
         const rowcount = await this.row.count();
         for(let i=0;i<rowcount;i++)
         {
+                          
+            
             const cell = (await this.row.nth(i).locator("[role='cell']").nth(columnIndex).textContent()).trim();
-            if(cell===value)
-             return this.row.nth(i);
+              console.log("-------------");
+            console.log(`Row ${i}: ${cell}`);
+            if(cell === value.trim())
+            return this.row.nth(i);
         }
         return null;
     }

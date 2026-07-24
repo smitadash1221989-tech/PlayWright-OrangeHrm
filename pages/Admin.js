@@ -150,5 +150,10 @@ export class Admin extends basePage {
 
         await this.click(this.searchBtn);
     }
+    async verifySearch(columnname,value)
+    {
+        const row = await this.webTable.getRowByColumnValue(columnname,value);
+        await expect(row).toBeVisible();
+    }
 
 }

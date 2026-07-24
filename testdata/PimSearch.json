@@ -1,0 +1,28 @@
+{
+  "searchEmployee1": {
+     "employeeId": "9009",
+    "employeeName": "Linda Marie",
+    "jobTitle": "QA Engineer",
+    "employmentStatus": "Full-Time Permanent",
+    "subUnit": "Engineering",
+    "supervisor": "Steven Edwards"
+  },
+
+  "searchEmployee2": {
+    "employeeId": "9008",
+    "employeeName": "John David Smith",
+    "jobTitle": "Software Engineer",
+    "employmentStatus": "Full-Time Permanent",
+    "subUnit": "Engineering",
+    "supervisor": "Steven Edwards"
+  },
+
+  "searchEmployee3": {
+     "employeeId": "0312",
+    "employeeName": "Aidan",
+    "jobTitle": "QA Lead",
+    "employmentStatus": "Full-Time Contract",
+    "subUnit": "Quality Assurance",
+    "supervisor": "Linda Anderson"
+  }
+}

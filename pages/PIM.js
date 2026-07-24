@@ -79,11 +79,16 @@ export class PIM extends basePage
           await this.firstnameadd(firstname);
           await this.middlenameadd(middlename);
           await this.lastnameadd(lastname);
-          await this.employeeID(empId);
+         await this.employeeID(empId);
           await this.imageUpload(path);
-          await this.addBtn();
-  
+          await this.click(this.saveNewUserBtn);
+          await this.page.waitForURL(/viewPersonalDetails/, {timeout: 15000});
+          await expect(this.page).toHaveURL(/viewPersonalDetails/);
 
+    }
+    async verifyAddUser()
+    {
+        await expect(this.page).toHaveURL(/viewPersonalDetails/);
     }
     async searchEmpname(empname)
     {
@@ -95,7 +100,10 @@ export class PIM extends basePage
     }
     async employeeIdentry(empId)
     {
+
         await this.fill(this.searchEmpId,empId);
+        console.log("Searching Employee ID:", empId);
+    console.log("Search field value:", await this.searchEmpId.inputValue());
     }
     async statusentry(status)
     {
@@ -131,7 +139,7 @@ export class PIM extends basePage
       const jobtitle= await option.allTextContents();
        //print all the option
        console.log(jobtitle);
-       return jobtitle;
+       
     }
     async subunitentry(option)
     {
@@ -139,15 +147,67 @@ export class PIM extends basePage
         await this.click(this.page.getByRole('option', { name:option}));
     }
 
-    async searchEmployee(empname,empid,empstatus,include,supervisor,jobtitle,sununit)
+    async searchEmployee(searchdata)
     {
-        await this.searchEmpname(empname);
-        await this.employeeIdentry(empid);
-        await this.statusentry(empstatus);
-        await this.includeentry(include);
-        await this.supervisorentry(supervisor);
-        await this.jobtitleentry(jobtitle);
-        await this.subunitentry(sununit);
+        if(searchdata.employeeName)
+        {
+            await this.searchEmpname(searchdata.employeeName);
+        }
+        if(searchdata.employeeId)
+        {
+            await this.employeeIdentry(searchdata.employeeId);
+        }
+        if(searchdata.employmentStatus)
+        {
+            await this.statusentry(searchdata.employmentStatus);
+        }
+        if(searchdata.include)
+        {
+            await this.includeentry(searchdata.include);
+        }
+        if(searchdata.supervisor)
+        {
+            await this.supervisorentry(searchdata.supervisor);
+        }
+        if(searchdata.jobTitle)
+        {
+            await this.jobtitleentry(searchdata.jobTitle);
+        }
+        if(searchdata.subUnit)
+       {
+         await this.subunitentry(searchdata.subUnit);
+       }
         await this.click(this.searchButton);
     }
+   async verifySearchPim(searchdata)
+   {
+        const columnMap={
+        //employeeId: "Id",
+        employeeName: "First (& Middle) Name",
+        lastName: "Last Name",
+        jobTitle: "Job Title",
+        employmentStatus: "Employment Status",
+        subUnit: "Sub Unit",
+        supervisor: "Supervisor"
+
+        }
+        
+        //the key value pair turns into array, [["key","value"],["key","value"]]
+        for(const [key,value] of Object.entries(searchdata))
+        {
+             console.log("Key:", key);
+             console.log("Column:", columnMap[key]);
+            //here the columnMap[key]. the key key name and the value from table header both are passed as arguments
+            const row = await this.webtable.getRowByColumnValue(columnMap[key],value);
+            if (!row)
+             {
+                throw new Error(`No row found for ${columnMap[key]} = '${value}'`);
+            }   
+            await expect(row).toBeVisible();
+        }
+   }
+   async printheader()
+   {
+    await this.webtable.headerdetail();
+   }
 }
