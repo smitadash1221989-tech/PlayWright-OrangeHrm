@@ -1,3 +1,5 @@
+import { expect } from "@playwright/test";
+
 // this basepage contains the common clicks,fill,wait for page load, which can be used in all the pages and we dont have to repeat the same code again and again
 export class basePage{
     //receiving the page object
@@ -44,5 +46,11 @@ export class basePage{
     async waitforPageLoad()
     {
         await this.page.waitForLoadState("networkidle");
+    }
+    async waitForsuccessToast(locator,message)
+    {
+        await expect(locator).toBeVisible();
+        await expect(locator).toContainText(message);
+        await expect(locator).toBeHidden();
     }
 }

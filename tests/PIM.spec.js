@@ -39,5 +39,14 @@ test.describe("Pim Module",{tag:'@smoke'},()=>{
     test("print",async({pimPagepg})=>{
         await pimPagepg.printheader();
     })
-   
+   test("Delete Employee",async({pimPagepg})=>{
+    const searchData = {employeeName: PimSearch.searchEmployee1.employeeName};
+    await pimPagepg.searchEmployee(searchData);
+    await pimPagepg.deleteEmployee(true);
+    await pimPagepg.verifyEmployeeDelete(searchData);
+   })
+   test("verify Delete",async({pimPagepg})=>{
+    const searchData =  PimSearch.searchEmployee1.employeeName;
+    await pimPagepg.verifyEmployeeDelete(searchData);
+   })
 })

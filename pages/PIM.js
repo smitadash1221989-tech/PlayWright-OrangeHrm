@@ -2,6 +2,7 @@ import { SideMenu } from "../components/SideMenu";
 import {test,expect} from '../fixtures/base.fixture';
 import { WebTable } from "../components/WebTable";
 import { basePage } from "../core/basepage";
+import { setUncaughtExceptionCaptureCallback } from "process";
 export class PIM extends basePage
 {
     constructor(page)
@@ -15,6 +16,10 @@ export class PIM extends basePage
         this.searchButton = page.locator(".oxd-button[type='submit']");
         this.resetButton = page.locator(".oxd-button[type='reset']");
         this.addButton = page.locator(".oxd-button[type='button']");
+        this.deleteButton= page.getByRole('button').filter({ hasText: /^$/ }).nth(4);
+        this.deleteYes=page.getByRole('button', { name: ' Yes, Delete' });
+        this.deletecancel=page.getByRole('button', { name: 'No, Cancel' });
+        this.dialogdelete=page.getByText('×Are you Sure?The selected');
 
         //locators field
         this.searchEmplyeeName=page.getByRole('textbox', { name: 'Type for hints...' }).first();
@@ -35,6 +40,11 @@ export class PIM extends basePage
         this.cancelUserBtn=page.getByRole('button', { name: 'Cancel' });
         this.employeenameSearching = page.getByRole('option', { name: 'Searching....' });
         this.supervisorsearch=page.getByRole('option', { name: 'Searching....' });
+        //success toast
+        this.successtoast= page.locator(".oxd-toast");
+        // this.successtoast = page.locator("//div[@id='oxd-toaster_1']");
+        //page.getByText('InfoNo Records Found×').first();
+
     }
     async openPIMPage()
     {
@@ -182,7 +192,7 @@ export class PIM extends basePage
    async verifySearchPim(searchdata)
    {
         const columnMap={
-        //employeeId: "Id",
+        employeeId: "Id",
         employeeName: "First (& Middle) Name",
         lastName: "Last Name",
         jobTitle: "Job Title",
@@ -209,5 +219,43 @@ export class PIM extends basePage
    async printheader()
    {
     await this.webtable.headerdetail();
+   }
+  async deleteconfirm()
+  {
+    
+    await this.click(this.deleteYes);
+  }
+  async deletecancel()
+  {
+   
+    await this.click(this.deletecancel);
+  }
+
+   async deleteEmployee(confirm=true)
+   {
+
+        await this.click(this.deleteButton);
+        await this.deleteYes.waitFor();
+        await expect(this.dialogdelete).toBeVisible();
+        if(confirm)
+        {
+            await this.deleteconfirm();
+        }
+        else
+        {
+            await this.deletecancel();
+        }
+        await expect(this.dialogdelete).toBeHidden();
+   }
+   async verifyEmployeeDelete(searchData)
+   {
+    //page.getByRole('textbox', { name: 'Type for hints...' }).first().fill('linda')
+        await this.click(this.searchEmplyeeName);
+        await this.searchEmplyeeName.pressSequentially(searchData,{delay:80});
+        await this.employeenameSearching.first().waitFor({state: "visible"});
+        await this.click(this.searchButton);
+       // const value = await this.employeenameSearching.textContent();
+        await this.waitForsuccessToast(this.successtoast,"No Records Found");
+        console.log("the employee is deleted correctly");
    }
 }
