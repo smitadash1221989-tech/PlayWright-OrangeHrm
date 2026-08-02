@@ -1,0 +1,21 @@
+{
+  "leave": {
+    "validLeave": {
+      "leaveType": "CAN - Personal",
+      "fromDate": "2026-08-01",
+      "toDate": "2026-08-05"
+    },
+
+    "singleDayLeave": {
+      "leaveType": "US - Vacation",
+      "fromDate": "2026-08-10",
+      "toDate": "2026-08-10"
+    },
+
+    "invalidDateRange": {
+      "leaveType": "CAN - Personal",
+      "fromDate": "2026-08-20",
+      "toDate": "2026-08-15"
+    }
+  }
+}

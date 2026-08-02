@@ -5,15 +5,17 @@ export class FakerUtil
     //"middleName": "Marie",
     //"lastName": "Anderson",
     //"employeeId": "9008",
-    static employee()// as this is a static method, so no need to create object,we can directly use Fakerutil.employee()
-    {
-        //it willreturn object in the form of key:value pair
-        return{
-            firstName:faker.person.firstName(),
-            middleName:faker.person.middleName(),
-            lastName:faker.person.lastName(),
-            employeeId:faker.string.numeric(4)
-            
+    static employee() {
+        const firstName = faker.person.firstName();
+        const middleName = faker.person.middleName();
+        const lastName = faker.person.lastName();
+
+        return {
+            firstName,
+            middleName,
+            lastName,
+            fullName: `${firstName} ${middleName} ${lastName}`,
+            employeeId: faker.string.numeric(4)
         };
     }
     

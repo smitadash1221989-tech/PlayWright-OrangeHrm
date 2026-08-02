@@ -3,6 +3,8 @@ import { LoginPage } from '../pages/LoginPage';
 import { Dashboard } from '../pages/Dashboard';
 import { Admin } from '../pages/Admin';
 import { PIM } from '../pages/PIM';
+import{RecruitmentPage} from '../pages/RecruitmentPage';
+import { LeavePage } from '../pages/LeavePage';
 
 console.log('BASE FIXTURE LOADED');
 console.log('typeof base =', typeof base);
@@ -23,6 +25,14 @@ export const test = base.extend({
     pimPagepg: async({page},use)=>{
         const pimPagepg = new PIM(page);
         await use(pimPagepg);
+    },
+    leavePagepg: async ({page},use)=>{
+        const leavePagepg = new LeavePage(page);
+        await use(leavePagepg);
+    },
+    recruitmentPagepg: async({page},use)=>{
+        const recruitmentPagepg = new RecruitmentPage(page);
+        await use(recruitmentPagepg);
     }
 
 });
