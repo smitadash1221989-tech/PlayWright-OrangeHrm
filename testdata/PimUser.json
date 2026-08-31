@@ -1,0 +1,61 @@
+{
+  "employee1": {
+     "firstName": "Linda",
+    "middleName": "Marie",
+    "lastName": "Anderson",
+    "employeeId": "9008",
+    "photo": "testdata/dashboardtext.png"
+  },
+
+  "employee2": {
+    "firstName": "John",
+    "middleName": "David",
+    "lastName": "Smith",
+    "employeeId": "9008",
+    "photo": "testdata/dashboardtext.png"
+  },
+
+  "employee3": {
+    "firstName": "Smita",
+    "middleName": "K",
+    "lastName": "Dash",
+    "employeeId": "89909",
+    "photo": "C:/Users/Smita Dash/OneDrive/Pictures/Screenshots/image2.jpeg"
+  },
+  "employee Status":{
+    "status1":"Full-Time Contract",
+    "status2":"Freelance",
+    "status3":"Full-Time Permanent",
+    "status4":"Full-Time Probation",
+    "status5":"Part-Time Contract"
+  },
+  "include":{
+    "option1":"Current Employees Only",
+    "option2":"Current and Past Employees",
+    "option3":"Past Employees Only"
+  },
+  
+"jobTitles": {
+    "accountAssistant": "Account Assistant",
+    "accountant": "Accountant",
+    "chiefExecutiveOfficer": "Chief Executive Officer",
+    "chiefFinancialOfficer": "Chief Financial Officer",
+    "financeManager": "Finance Manager",
+    "hrExecutive": "HR Executive",
+    "hrManager": "HR Manager",
+    "itManager": "IT Manager",
+    "networkAdministrator": "Network Administrator",
+    "networkEngineer": "Network Engineer",
+    "payrollAdministrator": "Payroll Administrator",
+    "payrollManager": "Payroll Manager",
+    "qaEngineer": "QA Engineer",
+    "qaLead": "QA Lead",
+    "salesManager": "Sales Manager",
+    "salesRepresentative": "Sales Representative",
+    "softwareArchitect": "Software Architect",
+    "softwareEngineer": "Software Engineer",
+    "supportSpecialist": "Support Specialist",
+    "technicalSupportEngineer": "Technical Support Engineer"
+  }
+
+}

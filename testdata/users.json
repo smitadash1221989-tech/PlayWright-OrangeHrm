@@ -6,5 +6,20 @@
     "incorrect" :{
         "username":"Admin",
         "password":"wrongpassword"
-    }
+    },
+    "newUser1": {
+    "role": "Admin",
+    "employeeName": "Amelia Brown",
+    "status": "Enabled",
+    "username": "admin12345",
+    "password": "Admin@123",
+    "confirmpassword":"Admin@123"
+  },"newUser2": {
+    "role": "Admin",
+    "employeeName": "Rahul",
+    "status": "Enabled",
+    "username": "admi3n12345",
+    "password": "Admi3n@123",
+    "confirmpassword":"Admi3n@123"
+  }
 }

@@ -1,5 +1,5 @@
 import {expect} from '@playwright/test';
-import { basePage } from '../core/basepage';
+import { basePage } from '../core/basePage';
 export class LoginPage extends basePage{
     constructor(page)
     {
