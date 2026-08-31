@@ -1,7 +1,7 @@
 import { SideMenu } from "../components/SideMenu";
 import {test,expect} from '../fixtures/base.fixture';
 import { WebTable } from "../components/WebTable";
-import { basePage } from "../core/basepage";
+import { basePage } from "../core/basePage";
 import { setUncaughtExceptionCaptureCallback } from "process";
 export class PIM extends basePage
 {
