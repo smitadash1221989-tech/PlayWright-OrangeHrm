@@ -29,7 +29,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                bat 'npx playwright test --workers=4'
+                bat 'npx playwright test'
             }
         }
     }
